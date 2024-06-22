@@ -25,23 +25,37 @@ class Store:
         else:
             print(f"Товар '{item_name}' не найден в ассортименте")
 
-# Пример использования:
-store = Store("Магазин Продукты", "ул. Ленина, 15")
+# Создание магазинов
+store1 = Store("Магазин Продукты", "ул. Ленина, 15")
+store2 = Store("Хоз. товары", "ул. Мира, 20")
+store3 = Store("Книжный Дом", "ул. Пушкина, 10")
 
-# Добавление товаров
-store.add_item("apples", 0.5)
-store.add_item("bananas", 0.75)
+# Добавление товаров в магазин Продукты
+store1.add_item("Яблоки", 0.5)
+store1.add_item("Бананы", 0.75)
+store1.add_item("Молоко", 1.2)
 
-# Удаление товара
-store.remove_item("bananas")
+# Добавление товаров в магазин Хоз. товары
+store2.add_item("Салфетки", 20)
+store2.add_item("Смеситель", 2300)
+store2.add_item("Швабра", 350)
 
-# Получение цены товара
-price = store.get_price("apples")
-print(f"Цена на apples: {price}")
+# Добавление товаров в магазин Книжный Дом
+store3.add_item("книга1", 10)
+store3.add_item("книга2", 15)
+store3.add_item("журнал", 5)
 
-# Обновление цены товара
-store.update_price("apples", 0.6)
+# Вывод информации о магазинах
+print(store1)
+print(store2)
+print(store3)
 
-# Проверка обновлённой цены
-price = store.get_price("apples")
-print(f"Новая цена на apples: {price}")
+# Обновление и удаление товаров
+store1.update_price("Яблоки", 0.6)
+store2.remove_item("Швабра")
+store3.update_price("журнал", 4)
+
+# Получение цен на товары
+print(f"Цена на Яблоки в магазине Продукты: {store1.get_price('Яблоки')}")
+print(f"Цена на Смеситель в магазине Хоз. товары: {store2.get_price('Смеситель')}")
+print(f"Цена на журнал в магазине Книжный Дом: {store3.get_price('журнал')}")
